@@ -50,8 +50,8 @@
 
     <div class="container">
 
-      <h1>Startseite    des Blogs</h1>
-      <p class="lead">Das hier ist die Startseite des Blogs.</p>
+      <h1>Übersicht des Blogs</h1>
+      <p class="lead">Das hier ist die Übersicht des Blogs.</p>
 
       <?php
         $res = $pdo->query("SELECT * FROM `posts`");
