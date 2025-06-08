@@ -6,7 +6,6 @@
 <?php
 $title = $_GET['title'];
 $post = fetch_post($title);
-var_dump($post);
 ?>
 
 <div class="panel panel-default">
