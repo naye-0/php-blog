@@ -1,0 +1,55 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# macOS metadata files
+*.com.apple.timemachine.donotpresent
+.com.apple.timemachine.donotpresent
+
+# macOS tags
+*.AppleDouble
+
+# VS Code settings
+.vscode/
+
+# Node.js
+node_modules/
+
+# Logs
+*.log
+
+# OS generated files
+ehthumbs.db
+Thumbs.db
+
+# IDEs/editors
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Environment files
+.env
+.env.*
+
+# Build artifacts
+dist/
+build/
+*.o
+*.out
+*.class
+
+# Package managers
+package-lock.json
+yarn.lock
