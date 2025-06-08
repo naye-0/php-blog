@@ -18,12 +18,12 @@ function fetch_posts()
 }
 
 // Function to fetch a single post by its title
-function fetch_post($title)
+function fetch_post($id)
 {
     global $pdo; // Use the global $pdo connection
     // Prepare a SQL statement to prevent SQL injection
-    $stmt = $pdo->prepare("SELECT * FROM `posts` WHERE title = :title");
-    $stmt->execute(['title' => $title]); // Execute with the provided title
+    $stmt = $pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
+    $stmt->execute(['id' => $id]); // Execute with the provided title
     return $stmt->fetch(); // Return the fetched post
 
     /* DO NOT USE THIS WAY!

@@ -4,8 +4,8 @@
 <h1>Post.php</h1>
 
 <?php
-$title = $_GET['title'];
-$post = fetch_post($title);
+$id = $_GET['id'];
+$post = fetch_post($id);
 ?>
 
 <div class="panel panel-default">
