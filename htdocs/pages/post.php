@@ -4,8 +4,9 @@
 <h1>Post.php</h1>
 
 <?php
+$postsRepository = new App\Post\PostsRepository();
 $id = $_GET['id'];
-$post = fetch_post($id);
+$post = $postsRepository->fetchPost($id);
 ?>
 
 <div class="panel panel-default">

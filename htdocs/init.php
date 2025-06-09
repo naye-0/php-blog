@@ -1,6 +1,6 @@
 <?php
 
-require "./autoload.php";
-require "./database.php";
+require __DIR__ . "/autoload.php";
+require __DIR__ . "/database.php";
 
 ?>

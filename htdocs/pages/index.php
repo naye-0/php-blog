@@ -5,7 +5,8 @@
       <p class="lead">Das hier ist die Startseite des Blogs.</p>
 
       <?php
-        $res = $pdo->query("SELECT * FROM `posts`");
+        $postsRepository = new App\Post\PostsRepository();
+        $res = $postsRepository->fetchPosts();
       ?>
 
       <!-- <pre>
