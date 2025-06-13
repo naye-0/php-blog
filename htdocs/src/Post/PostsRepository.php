@@ -29,8 +29,16 @@ class PostsRepository
         $stmt = $this->pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
         // Execute the statement with the provided ID
         $stmt->execute(['id' => $id]);
-        // Return the fetched post as an associative array
-        return $stmt->fetch();
+
+        $postArray = $stmt->fetch();
+
+        $post = new PostModel();
+        $post->id = $postArray["id"];
+        $post->title = $postArray["title"];
+        $post->content = $postArray["content"];
+
+        return $post;
+
 
     /* DO NOT USE THIS WAY!
     // This is vulnerable to SQL injection and should be avoided
