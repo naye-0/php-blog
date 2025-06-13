@@ -4,7 +4,7 @@
 <h1>Post.php</h1>
 
 <?php
-$postsRepository = new App\Post\PostsRepository();
+$postsRepository = new App\Post\PostsRepository($pdo);
 $id = $_GET['id'];
 $post = $postsRepository->fetchPost($id);
 ?>

@@ -1,23 +1,36 @@
 <?php
 namespace App\Post;
 
+use PDO;
+
+// Repository class for handling blog posts in the database
 class PostsRepository
 {
-// Function to fetch all posts from the 'posts' table
-function fetchPosts()
-{
-    global $pdo; // Use the global $pdo connection
-    return $pdo->query("SELECT * FROM `posts`"); // Execute query and return result
-}
+    // PDO instance for database connection
+    private $pdo;
 
-// Function to fetch a single post by its title
-function fetchPost($id)
-{
-    global $pdo; // Use the global $pdo connection
-    // Prepare a SQL statement to prevent SQL injection
-    $stmt = $pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
-    $stmt->execute(['id' => $id]); // Execute with the provided title
-    return $stmt->fetch(); // Return the fetched post
+    // Constructor: receives a PDO object and saves it for later use
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
+
+    // Fetches all posts from the 'posts' table
+    public function fetchPosts()
+    {
+        // Execute a query to get all posts and return the result set
+        return $this->pdo->query("SELECT * FROM `posts`");
+    }
+
+    // Fetches a single post by its ID
+    public function fetchPost($id)
+    {
+        // Prepare a SQL statement to prevent SQL injection
+        $stmt = $this->pdo->prepare("SELECT * FROM `posts` WHERE id = :id");
+        // Execute the statement with the provided ID
+        $stmt->execute(['id' => $id]);
+        // Return the fetched post as an associative array
+        return $stmt->fetch();
 
     /* DO NOT USE THIS WAY!
     // This is vulnerable to SQL injection and should be avoided
