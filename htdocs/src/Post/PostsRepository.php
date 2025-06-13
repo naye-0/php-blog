@@ -18,8 +18,9 @@ class PostsRepository
     // Fetches all posts from the 'posts' table
     public function fetchPosts()
     {
-        // Execute a query to get all posts and return the result set
-        return $this->pdo->query("SELECT * FROM `posts`");
+        $stmt = $this->pdo->query("SELECT * FROM `posts`");
+        $posts = $stmt->fetchAll(PDO::FETCH_CLASS, "App\\Post\\PostModel");
+        return ($posts);
     }
 
     // Fetches a single post by its ID
@@ -30,12 +31,8 @@ class PostsRepository
         // Execute the statement with the provided ID
         $stmt->execute(['id' => $id]);
 
-        $postArray = $stmt->fetch();
-
-        $post = new PostModel();
-        $post->id = $postArray["id"];
-        $post->title = $postArray["title"];
-        $post->content = $postArray["content"];
+        $stmt->setFetchMode(PDO::FETCH_CLASS, "App\\Post\\PostModel");
+        $post = $stmt->fetch(PDO::FETCH_CLASS);
 
         return $post;
 
